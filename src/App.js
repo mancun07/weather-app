@@ -7,7 +7,6 @@ import {actionsfetchDataHandler} from './store/actions'
 import {uiActions} from './store/uiSlice'
 import Notification from './components/Notification';
 
-  // "homepage": "https://mancun07.github.io/weather-app",
 
 function App() {
   // const [weather, setWeather] = useState()
