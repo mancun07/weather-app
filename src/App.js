@@ -19,10 +19,6 @@ function App() {
 
 
   useEffect(() => {
-    dispatch(actionsfetchDataHandler('Санкт-Петербург'))
-  }, [])
-
-  useEffect(() => {
     let timer = setTimeout(() => {
       dispatch(uiActions.clearNotification())
     }, 3000)
