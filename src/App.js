@@ -7,7 +7,7 @@ import {actionsfetchDataHandler} from './store/actions'
 import {uiActions} from './store/uiSlice'
 import Notification from './components/Notification';
 
-
+  // "homepage": "https://mancun07.github.io/weather-app",
 
 function App() {
   // const [weather, setWeather] = useState()
@@ -17,13 +17,17 @@ function App() {
   const city = useSelector(state => state.city.city)
   const notification = useSelector(state => state.ui.notification)
 
+  useEffect(() => {
+      dispatch(actionsfetchDataHandler('Санкт-Петербург'))
+  }, [dispatch])
+
 
   useEffect(() => {
     let timer = setTimeout(() => {
       dispatch(uiActions.clearNotification())
     }, 3000)
     return () => clearTimeout(timer)
-  }, [notification])
+  }, [dispatch, notification])
 
 
   return (
