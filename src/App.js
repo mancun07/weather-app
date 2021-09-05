@@ -17,9 +17,9 @@ function App() {
   const city = useSelector(state => state.city.city)
   const notification = useSelector(state => state.ui.notification)
 
-  useEffect(() => {
-      dispatch(actionsfetchDataHandler('Санкт-Петербург'))
-  }, [dispatch])
+  // useEffect(() => {
+  //     dispatch(actionsfetchDataHandler('Санкт-Петербург'))
+  // }, [dispatch])
 
 
   useEffect(() => {
