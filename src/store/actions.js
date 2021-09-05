@@ -6,7 +6,7 @@ const key = 'dGd4rEiqwfaUUsyWCj29QIVBXP6r7hAP'
 export const actionsfetchDataHandler = (userValue) => {
     return async (dispatch) => {
         const fetchDataHandler = async () => {
-          const response = await fetch(`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${key}&q=${userValue}`)
+          const response = await fetch(`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${key}&q=${userValue}&language=ru`)
           if (!response.ok) {
             throw new Error({message: 'There is a server error'})
           }
@@ -18,7 +18,7 @@ export const actionsfetchDataHandler = (userValue) => {
           }
 
       const fetchWeatherHandler = async (cityKey) => {
-        const response2 = await fetch(`http://dataservice.accuweather.com/currentconditions/v1/${cityKey}?apikey=${key}`)
+        const response2 = await fetch(`http://dataservice.accuweather.com/currentconditions/v1/${cityKey}?apikey=${key}&language=ru`)
         if (!response2.ok) {
           throw new Error({message: 'There is a server error'})
         }
