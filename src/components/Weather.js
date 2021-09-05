@@ -10,8 +10,8 @@ const Weather = () => {
    const city = useSelector(state => state.city.city)
     console.log(weather)
 
-    let imgSrc = weather[0].IsDayTime ? '/images/day.svg' : './images/night.svg'
-    let icon = `/images/icons/${weather[0].WeatherIcon}.svg`
+    let imgSrc = weather[0].IsDayTime ? './images/day.svg' : './images/night.svg'
+    let icon = `./images/icons/${weather[0].WeatherIcon}.svg`
 
     return (
         <motion.div initial={{x:'-100vw'}} animate={{x:0}} className={classes.weather}>
