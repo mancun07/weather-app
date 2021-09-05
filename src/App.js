@@ -30,13 +30,11 @@ function App() {
 
 
   return (
-      <div className="wrapper">
       <Layout>
         {notification && <Notification message={notification.message}/>}
         {weather && city.length > 0 && <Weather/>}
         <UserSearch/>
       </Layout>
-      </div>
   );
 }
 
