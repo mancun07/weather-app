@@ -3,7 +3,8 @@ import { createSlice } from '@reduxjs/toolkit'
 const uiSlice = createSlice({
     name: 'ui',
     initialState: {
-        notification: null
+        notification: null,
+        loading: false
     },
     reducers: {
         showNotification(state, action) {
@@ -14,6 +15,9 @@ const uiSlice = createSlice({
         clearNotification(state, action) {
             state.notification = null
         },
+        setLoading(state, action) {
+            state.loading = action.payload
+        }
     }
 })
 

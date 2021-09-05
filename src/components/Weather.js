@@ -1,4 +1,3 @@
-import React, {useEffect} from 'react'
 import { useSelector } from 'react-redux';
 import {motion} from 'framer-motion'
 import classes from './Weather.module.css'

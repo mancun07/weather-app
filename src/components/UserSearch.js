@@ -1,4 +1,4 @@
-import React, {useRef} from 'react'
+import {useRef} from 'react'
 import classes from './UserSearch.module.css'
 import {uiActions} from '../store/uiSlice'
 import {useDispatch} from 'react-redux'
@@ -14,7 +14,7 @@ const UserSearch = (props) => {
 
         if (inputRefValue === '') {
             dispatch(uiActions.showNotification({
-                message: 'Город не введен. Введите  пожалуйста.'
+                message: 'Город не введен. Введите пожалуйста.'
             }))
         } else {
             dispatch(actionsfetchDataHandler(inputRefValue))
@@ -33,4 +33,4 @@ const UserSearch = (props) => {
     )
 }
 
-export default React.memo(UserSearch)
+export default UserSearch

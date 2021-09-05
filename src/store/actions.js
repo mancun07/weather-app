@@ -13,7 +13,6 @@ export const actionsfetchDataHandler = (userValue) => {
           const data = await response.json()
           dispatch(cityActions.addCity(data))
           let cityKey = data[0].Key 
-          console.log(data)
           return cityKey
           }
 
@@ -24,29 +23,33 @@ export const actionsfetchDataHandler = (userValue) => {
         }
         const data2 = await response2.json() 
         dispatch(cityActions.addWeather(data2))
-        console.log(data2)
         return data2
       }
 
-      fetchDataHandler()
-      .then(data => fetchWeatherHandler(data))
-      .catch(err => {
+
+      try {
+        dispatch(uiActions.setLoading(true))
+        const result1 = await fetchDataHandler()
+        await fetchWeatherHandler(result1)
+      } catch (error) {
         dispatch(uiActions.showNotification({
-          message:'Колян, не вводи фигню всякую!'
+          message:'Проверьте правильность написания города'
         }))  
-      })
+      }
+            dispatch(uiActions.setLoading(false))
 
-      // just another option below of using async/await
 
-      // try {
-      //   const result1 = await fetchDataHandler()
-      //   const result2 = await fetchWeatherHandler(result1)
-      //   console.log(result2)
-      // } catch (error) {
+    // just another option below of using then/catch
+
+      // dispatch(uiActions.setLoading(true))
+      // fetchDataHandler()
+      // .then(data => fetchWeatherHandler(data))
+      // .catch(err => {
       //   dispatch(uiActions.showNotification({
-      //     message:'Проверьте правильность написания города'
+      //     message:'не вводи фигню всякую!'
       //   }))  
-      // }
+      // })
+      // dispatch(uiActions.setLoading(false))
   
     }
 }

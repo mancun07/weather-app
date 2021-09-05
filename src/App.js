@@ -1,4 +1,4 @@
-import {useState, useCallback, useEffect} from 'react'
+import { useEffect } from 'react'
 import Layout from './components/Layout';
 import UserSearch from "./components/UserSearch";
 import Weather from './components/Weather';
@@ -6,15 +6,15 @@ import { useSelector, useDispatch } from 'react-redux';
 import {actionsfetchDataHandler} from './store/actions'
 import {uiActions} from './store/uiSlice'
 import Notification from './components/Notification';
+import Loading from './components/Loading';
 
-// "homepage": "https://mancun07.github.io/weather-app",
 function App() {
-  // const [weather, setWeather] = useState()
+
   const dispatch = useDispatch()
-  // const userValue = useSelector(state => state.city.userValue)
   const weather = useSelector(state => state.city.weather)
   const city = useSelector(state => state.city.city)
   const notification = useSelector(state => state.ui.notification)
+  const loading = useSelector(state => state.ui.loading)
 
   useEffect(() => {
       dispatch(actionsfetchDataHandler('Санкт-Петербург'))
@@ -31,8 +31,9 @@ function App() {
 
   return (
       <Layout>
-        {notification && <Notification message={notification.message}/>}
-        {weather && city.length > 0 && <Weather/>}
+        {loading && <Loading/>}
+        {!loading && notification && <Notification message={notification.message}/>}
+        {!loading && weather && city.length > 0 && <Weather/>}
         <UserSearch/>
       </Layout>
   );

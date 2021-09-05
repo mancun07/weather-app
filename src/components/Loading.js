@@ -1,10 +1,14 @@
-// import React from 'react'
-// import classes from './Loading.module.css'
+import classes from './Loading.module.css'
 
-// const Loading = () => {
-//     return (
-// <div classes={classes[`lds-ring`]}><div></div><div></div><div></div><div></div></div>
-//     )
-// }
+const Loading = () => {
+    return (
+    <div class={classes[`lds-roller`]}>
+        <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+    </div>
 
-// export default Loading
+    )
+}
+
+export default Loading
+
+
