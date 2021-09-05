@@ -7,7 +7,7 @@ import {actionsfetchDataHandler} from './store/actions'
 import {uiActions} from './store/uiSlice'
 import Notification from './components/Notification';
 
-
+// "homepage": "https://mancun07.github.io/weather-app",
 function App() {
   // const [weather, setWeather] = useState()
   const dispatch = useDispatch()
@@ -30,11 +30,13 @@ function App() {
 
 
   return (
+      <div className="wrapper">
       <Layout>
         {notification && <Notification message={notification.message}/>}
         {weather && city.length > 0 && <Weather/>}
         <UserSearch/>
       </Layout>
+      </div>
   );
 }
 
