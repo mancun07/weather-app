@@ -32,7 +32,7 @@ export const actionsfetchDataHandler = (userValue) => {
       .then(data => fetchWeatherHandler(data))
       .catch(err => {
         dispatch(uiActions.showNotification({
-          message:'Проверьте правильность написания города'
+          message:'Колян, не вводи фигню всякую!'
         }))  
       })
 
